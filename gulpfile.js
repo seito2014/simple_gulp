@@ -3,16 +3,20 @@ var gulp = require("gulp");
 var ejs = require("gulp-ejs"),
     sass = require("gulp-ruby-sass"),
     pleeease = require("gulp-pleeease"),
-    browser = require("browser-sync");
+    browser = require("browser-sync"),
+    notify = require("gulp-notify"),
+    plumber = require('gulp-plumber');
 
-var DEV = "app/dev",
-    PUBLIC = "app/public";
+var DEV = "app/pc/dev",
+    PUBLIC = "app/pc/public";
 
 //ejs
 gulp.task("ejs", function() {
     gulp.src(
         [DEV + "/ejs/**/*.ejs",'!' + DEV + "/ejs/**/_*.ejs"]
     )
+        .pipe(plumber())
+        .pipe(notify("Found file: <%= file.relative %>!"))
         .pipe(ejs())
         .pipe(gulp.dest(PUBLIC))
         .pipe(browser.reload({stream:true}));
@@ -21,6 +25,8 @@ gulp.task("ejs", function() {
 //style
 gulp.task("style", function() {
     gulp.src(DEV + "/sass/**/*.scss")
+        .pipe(plumber())
+        .pipe(notify("Found file: <%= file.relative %>!"))
         .pipe(sass({
             style:"nested",
             compass : true,
@@ -39,18 +45,22 @@ gulp.task("style", function() {
 //copy
 gulp.task("js", function() {
     return gulp.src(DEV + "/js/**/*.js")
+        .pipe(plumber())
+        .pipe(notify("Found file: <%= file.relative %>!"))
         .pipe(gulp.dest(PUBLIC + "/js"));
 });
 
 //lib
 gulp.task("lib", function() {
     return gulp.src(DEV + "/lib/**/*.js")
+        .pipe(plumber())
         .pipe(gulp.dest(PUBLIC + "/lib"));
 });
 
-//lib
+//image
 gulp.task("images", function() {
     return gulp.src(DEV + "/images/**/*")
+        .pipe(plumber())
         .pipe(gulp.dest(PUBLIC + "/images"));
 });
 

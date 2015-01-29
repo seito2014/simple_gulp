@@ -16,7 +16,7 @@
     "test"
   ],
   "author": "seito horiguchi",
-  "license": "mit",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/seito2014/demo-sample/issues"
   },
@@ -25,7 +25,10 @@
     "browser-sync": "^1.9.1",
     "gulp": "^3.8.10",
     "gulp-ejs": "^1.0.0",
+    "gulp-notify": "^2.2.0",
     "gulp-pleeease": "^1.1.0",
-    "gulp-ruby-sass": "^0.7.1"
+    "gulp-plumber": "^0.6.6",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-typescript": "^2.4.1"
   }
 }
