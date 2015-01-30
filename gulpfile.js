@@ -12,7 +12,7 @@ var DEV = "app/pc/dev",
 
 //ejs
 gulp.task("ejs", function() {
-    return　gulp.src(
+    return gulp.src(
         [DEV + "/ejs/**/*.ejs",'!' + DEV + "/ejs/**/_*.ejs"]
     )
         .pipe(plumber())
@@ -24,7 +24,7 @@ gulp.task("ejs", function() {
 
 //style
 gulp.task("style", function() {
-    return　gulp.src(DEV + "/sass/**/*.scss")
+    return gulp.src(DEV + "/sass/**/*.scss")
         .pipe(plumber())
         .pipe(notify("Found file: <%= file.relative %>!"))
         .pipe(sass({

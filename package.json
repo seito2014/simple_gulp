@@ -28,7 +28,6 @@
     "gulp-notify": "^2.2.0",
     "gulp-pleeease": "^1.1.0",
     "gulp-plumber": "^0.6.6",
-    "gulp-ruby-sass": "^0.7.1",
-    "gulp-typescript": "^2.4.1"
+    "gulp-ruby-sass": "^0.7.1"
   }
 }
